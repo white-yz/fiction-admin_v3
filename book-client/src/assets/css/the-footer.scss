@@ -1,0 +1,20 @@
+@import "var.scss";
+@import "global.scss";
+
+.the-footer {
+  width: 100%;
+  height: 150px;
+  background-color: $theme-footer-color;
+  @include layout(center, center, column);
+  p {
+    height: 30px;
+  }
+  span{
+    padding: 0 2px;
+    cursor: pointer;
+  }
+  span:hover{
+    color: #fff;
+    background-color: #2DA0FF;
+  }
+}

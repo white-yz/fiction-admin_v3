@@ -1,0 +1,44 @@
+@import "var.scss";
+@import "global.scss";
+
+div,
+ul,
+li {
+  box-sizing: border-box;
+}
+
+.singer {
+  margin: 30px 10%;
+  margin-top: $header-height + 20px;
+  padding-bottom: 50px;
+  background-color: $color-white;
+  .singer-header {
+    width: 100%;
+    padding: 0 40px;
+    li {
+      display: inline-block;
+      line-height: 40px;
+      margin: 40px 20px 15px 20px;
+      font-family:楷体;
+      font-size: 20px;
+      font-weight: 700;
+      color: #333;
+      border-bottom: none;
+      cursor: pointer;
+      transition: 0.1s;
+      padding: 0 5px;
+    }
+    li.active {
+      color: #fff !important;
+      background: #4747A5;
+      border-radius: 2px;
+    }
+    li:hover{
+      color: #4747A5;
+    }
+  }
+}
+
+.pagination {
+  @include layout;
+}

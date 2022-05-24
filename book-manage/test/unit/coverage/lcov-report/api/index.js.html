@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for api/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">api</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/24</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import {get,post} from "./http";</span>
+&nbsp;
+// 判断管理员是否登录成功
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getLoginStatus = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`admin/login/status`,params);</span></span>
+&nbsp;
+//============作家相关===============
+//添加作家
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setWriter = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`writer/add`,params);</span></span>
+//查询作家
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getAllWriter = <span class="cstat-no" title="statement not covered" >(</span>) =&gt; get(`writer/allWriter`);</span></span>
+//编辑作家
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >updateWriter = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`writer/update`,params);</span></span>
+//删除作家
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >delWriter = <span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`writer/delete?id=${id}`);</span></span>
+&nbsp;
+//============书籍相关================
+//根据作家id查询书籍
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >bookOfWriterId =<span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`book/writer/detail?writerId=${id}`);</span></span>
+//添加书籍 
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setBook = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`book/add`,params);</span></span>
+//查询书籍
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getAllBook = <span class="cstat-no" title="statement not covered" >(</span>) =&gt; get(`book/allBook`);</span></span>
+//编辑书籍
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >updateBook = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`book/update`,params);</span></span>
+//删除书籍
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >delBook = <span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`book/delete?id=${id}`);</span></span>
+//根据书籍id查询书籍对象
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >bookOfBookId =<span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`book/detail?bookId=${id}`); </span></span>
+&nbsp;
+//============目录相关================
+//根据书籍id查询目录
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >directoryOfBookId =<span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`directory/book/detail?bookId=${id}`);</span></span>
+//添加目录
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setDirectory = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`directory/add`,params);</span></span>
+//查询目录
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getAllDirectory = <span class="cstat-no" title="statement not covered" >(</span>) =&gt; get(`directory/allDirectory`);</span></span>
+//编辑目录
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >updateDirectory = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`directory/update`,params);</span></span>
+//删除目录
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >delDirectory = <span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`directory/delete?id=${id}`);</span></span>
+&nbsp;
+//============用户相关================
+//查询用户
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getAllConsumer =<span class="cstat-no" title="statement not covered" >(</span>) =&gt; get(`consumer/allConsumer`);</span></span>
+//添加用户
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setConsumer = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`consumer/add`,params);</span></span>
+//编辑用户
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >updateConsumer = <span class="cstat-no" title="statement not covered" >(</span>params) =&gt; post(`consumer/update`,params);</span></span>
+//删除用户
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >delConsumer = <span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`consumer/delete?id=${id}`);</span></span>
+//根据用户id查询该用户的详细信息
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getUserOfId =<span class="cstat-no" title="statement not covered" >(</span>id) =&gt; get(`/consumer/selectByPrimaryKey?id=${id}`);</span></span>
+&nbsp;
+//===============收藏===================
+//指定用户的收藏列表
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >getCollectOfUserId = <span class="cstat-no" title="statement not covered" >(</span>userId) =&gt; get(`/collect/collectOfUserId?userId=${userId}`);</span></span>
+//删除用户收藏的歌曲
+export const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >deleteCollection = <span class="cstat-no" title="statement not covered" >(</span>userId,bookId) =&gt; get(`collect/delete?userId=${userId}&amp;bookId=${bookId}`);</span></span></pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 29 2021 20:25:00 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

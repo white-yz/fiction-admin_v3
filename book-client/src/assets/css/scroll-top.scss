@@ -1,0 +1,62 @@
+@import "var.scss";
+@import "global.scss";
+
+.scroll-top {
+  position: fixed;
+  width: 50px;
+  height: 30px;
+  right: 10px;
+  bottom: 80px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: $color-white;
+  border-radius: 20%;
+  overflow: hidden;
+  @include box-shadow(0 0 4px 3px rgba(0, 0, 0, 0.2));
+  &:hover:before {
+    top: 50%;
+  }
+  &:hover .box-in {
+    visibility: hidden;
+  }
+  &:before {
+    content: "回到顶部";
+    position: absolute;
+    font-weight: bold;
+    width: 30px;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.box-in {
+  visibility: visible;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 1px solid $color-black;
+  border-color: $color-black transparent transparent $color-black;
+  transform: rotate(45deg);
+}
+/* 返回顶部 */
+p#back-to-top{
+  display: none;
+  position:fixed;
+  bottom:50px;
+  right:30px;
+  border-radius:6px;
+  height:50px;
+  width:50px;
+  background:#B7C1B6;
+  text-align: center;
+  padding-top: 2px;
+}
+p#back-to-top:hover{
+  background:#99CCCC;
+}
+p#back-to-top a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 34px;
+}

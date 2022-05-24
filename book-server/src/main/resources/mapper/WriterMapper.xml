@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.book.dao.WriterMapper">
+    <resultMap id="BaseResultMap" type="com.java.book.domain.Writer" >
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="sex" jdbcType="TINYINT" property="sex"/>
+        <result column="pic" jdbcType="VARCHAR" property="pic"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="birth" jdbcType="TIMESTAMP" property="birth"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="vip" jdbcType="BOOLEAN" property="vip"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,	username,`password`,state,`name`,sex,pic,birth,location,introduction,vip
+    </sql>
+
+    <insert id="insert" parameterType="com.java.book.domain.Writer">
+        insert into writer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="pic != null">
+                pic,
+            </if>
+            <if test="birth != null">
+                birth,
+            </if>
+            <if test="location != null">
+                location,
+            </if>
+            <if test="introduction != null">
+                introduction,
+            </if>
+            <if test="vip != null">
+                vip,
+            </if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="state != null">
+                #{state},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="sex != null">
+                #{sex},
+            </if>
+            <if test="pic != null">
+                #{pic},
+            </if>
+            <if test="birth != null">
+                #{birth},
+            </if>
+            <if test="location != null">
+                #{location},
+            </if>
+            <if test="introduction != null">
+                #{introduction},
+            </if>
+            <if test="vip != null">
+                #{vip},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="com.java.book.domain.Writer">
+        update writer
+        <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="pic != null">
+                pic = #{pic},
+            </if>
+            <if test="birth != null">
+                birth = #{birth},
+            </if>
+            <if test="location != null">
+                location = #{location},
+            </if>
+            <if test="introduction != null">
+                introduction = #{introduction},
+            </if>
+            <if test="vip != null">
+                vip = #{vip}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from writer
+        where id=#{id}
+    </delete>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from writer
+        where id=#{id}
+    </select>
+
+    <select id="allWriter" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from writer
+    </select>
+
+    <select id="writerOfName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from writer
+        where name like #{name}
+    </select>
+
+    <select id="writerOfSex" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from writer
+        where sex = #{sex}
+    </select>
+
+    <select id="verifyPassword" resultType="java.lang.Boolean" parameterType="java.util.HashMap">
+        select count(*)
+        from writer
+        where username = #{username} and password = #{password}
+    </select>
+
+    <select id="getByUsername" resultType="com.java.book.domain.Writer">
+        select *
+        from writer
+        where username = #{username}
+    </select>
+</mapper>

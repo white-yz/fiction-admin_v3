@@ -1,0 +1,70 @@
+@import "var.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+html {
+  min-width: 1200px;
+  font-size: 14px;
+}
+
+div {
+  box-sizing: content-box;
+}
+
+/*表单*/
+.el-select-dropdown__item {
+  display: block !important;
+}
+
+/*轮播图*/
+.el-scrollbar__view,
+.el-select-dropdown__list {
+  width: 100% !important;
+  text-align: center;
+}
+
+.el-carousel__indicators,
+.el-carousel__indicators--outside {
+  display: inline-block;
+  margin-left: 500px !important;
+}
+
+.el-slider__runway {
+  background-color: $color-blue !important;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #4747A5;
+  color: #FFF;
+}
+
+.el-button--primary:focus,
+.el-button--primary:hover {
+    background: #4747A5;
+    border-color: #4747A5;
+    color: #FFF;
+}
+.el-button--primary {
+    color: #FFF;
+    background-color: #4747A5;
+    border-color: #4747A5;
+}
+
+.el-button--danger,
+.el-button--danger.is-plain.is-disabled,
+.el-button--danger.is-plain.is-disabled:active,
+.el-button--danger.is-plain.is-disabled:focus,
+.el-button--danger.is-plain.is-disabled:hover {
+  color: #fff;
+  background-color: #D55969;
+  border-color: #D55969;
+}

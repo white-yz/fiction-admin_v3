@@ -1,0 +1,121 @@
+.bg{
+    
+}
+.content{
+    margin: 100px 0;
+}
+.textbox{
+    background-color: #F6F4EC;
+    box-shadow: 0 0 15px 0 #CCC;
+    background: #F6F4EC;
+    border-radius: 3px;
+    padding-bottom: 40px;
+    width: 800px;
+    margin: 0 auto;
+    color: #333;
+}
+.story_title {
+    width: 88%;
+    margin: 0 auto;
+    padding: 0 0 10px 10px;
+    border-bottom: 1px solid #E3E1D9;
+    position: relative;
+}
+.story_title h1 {
+    padding-top: 24px;
+    font: 26px/1 "Microsoft YaHei";
+    margin-bottom: 10px;
+    color: #000;
+}
+.textinfo {
+    color: #999;
+    font: 12px/1.8 "Microsoft YaHei";
+    position: relative;
+}
+.textinfo span {
+    margin-right: 10px;
+}
+.text {
+    width: 90%;
+    margin: 0 auto;
+}
+.bookreadercontent {
+    line-height: 1.8;
+    font-size: 18px;
+    padding-top: 16px;
+    min-height: 360px;
+    word-break: break-all;
+}
+.leftFloatBarBtnList {
+    position: fixed;
+    z-index: 50;
+    left: 212px;
+    top: 130px;
+    width: 60px;
+}
+.rightFloatBarBtnList {
+    position: fixed;
+    z-index: 50;
+    right: 212px;
+    top: 130px;
+    width: 60px;
+}
+.barList li {
+    box-shadow: 0 0 5px #BBB;
+    margin-bottom: 2px;
+    width: 60px;
+    position: relative;
+}
+.barList li a{
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: relative;   
+    background-color: #F6F4EC;
+    text-align: center;
+    line-height: 60px;
+    font-size: 22px;
+    cursor: pointer;
+}
+.barList li a:hover{
+    background-color: #fff;   
+}
+.barList li a:hover .ml{
+    display: block;
+}
+.ml{
+    padding: 0 10px 10px;
+    display: none;
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 780px;
+    background-color: #fff;
+    text-align: left;
+}
+.ml{
+    font-size: 14px;
+    line-height: 28px;
+}
+.ml #ml{
+    border-bottom: 2px solid #2DA0FF;
+    padding: 15px 0 1px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #2DA0FF;
+}
+.ml li{
+    border-bottom: 1px dotted #ccc;
+    width: 260px;
+    box-shadow:none;   
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap; 
+}
+.ml li:hover{
+    color: #2DA0FF;
+}
+.bgG{
+    
+}
