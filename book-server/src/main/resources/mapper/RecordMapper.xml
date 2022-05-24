@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.book.dao.RecordMapper">
+    <select id="selectRecordByConsumerId" resultType="com.java.book.domain.Record">
+        SELECT
+            a.*,
+            b.`name` directory_name
+        FROM
+            record a
+            LEFT JOIN `directory` b ON a.directory_id = b.id
+        WHERE
+            a.consumer_id = #{consumerId}
+            AND b.book_id = #{bookId}
+        ORDER BY a.create_time DESC
+        LIMIT 1
+    </select>
+
+    <select id="selectRecordByWriterId" resultType="com.java.book.domain.Record">
+        SELECT
+            a.*,
+            b.`name` directory_name
+        FROM
+            record a
+            LEFT JOIN `directory` b ON a.directory_id = b.id
+        WHERE
+            a.writer_id = #{writerId}
+                        AND b.book_id = #{bookId}
+        ORDER BY
+            a.create_time DESC
+        LIMIT 1
+    </select>
+
+    <insert id="insert">
+        insert into record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="directoryId != null">
+                directory_id,
+            </if>
+            <if test="consumerId != null">
+                consumer_id,
+            </if>
+            <if test="writerId != null">
+                writer_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="directoryId != null">
+                #{directoryId},
+            </if>
+            <if test="consumerId != null">
+                #{consumerId},
+            </if>
+            <if test="writerId != null">
+                #{writerId},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+        </trim>
+    </insert>
+</mapper>

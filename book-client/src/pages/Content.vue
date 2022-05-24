@@ -42,12 +42,12 @@
           </a>
         </li>
         <li v-if="!isEdit">
-          <div v-if="!isActive" class="item" @click="collection" title="加入书架">
+          <div v-if="!isShowCollect" class="item" @click="collection" title="加入书架">
             <svg class="icon">
               <use xlink:href="#icon-xihuan-shi"></use>
             </svg>
           </div>
-          <div v-if="isActive" class="item" @click="delCollection" title="移出书架">
+          <div v-if="isShowCollect" class="item" @click="delCollection" title="移出书架">
             <svg class="icon active">
               <use xlink:href="#icon-xihuan-shi"></use>
             </svg>
@@ -95,13 +95,16 @@ export default {
       content: [],
       book: [],
       writer: [],
-      key: true,//控制滚动条是否滚动
+      key: true, //控制滚动条是否滚动
       timer: 0,
       speed: 10,
-      isEdit: null
+      isEdit: null,
+      isShowCollect: null
     }
   },
   created() {
+    if (window.sessionStorage.getItem('isActive'))
+      this.isShowCollect = JSON.parse(window.sessionStorage.getItem('isActive'))
     this.id = this.$route.query.id
     this.bookId = this.$route.query.bookId
     this.writerId = this.$route.query.writerId
@@ -209,6 +212,7 @@ export default {
         setCollect(params).then((res) => {
           if (res.code == 1) {
             this.$store.commit('setIsActive', true)
+            this.isShowCollect = true
             this.$message({
               message: '收藏成功',
               showClose: true,
@@ -244,6 +248,7 @@ export default {
         .then((res) => {
           // console.log(res);
           this.$store.commit('setIsActive', false)
+          this.isShowCollect = false
           this.$message({
             message: '取消收藏',
             showClose: true,
@@ -261,7 +266,7 @@ export default {
         document.documentElement.clientHeight
       if (demo == 0) {
         this.key = true
-        clearInterval(this.timer)//取消由 setInterval() 函数设定的定时执行操作
+        clearInterval(this.timer) //取消由 setInterval() 函数设定的定时执行操作
       } else {
         this.key = false
       }
@@ -270,7 +275,7 @@ export default {
       var _this = this
       if (this.key) {
         this.timer = setInterval(function () {
-          window.scrollBy(0, 1)//向右滚动0，向下滚动1px
+          window.scrollBy(0, 1) //向右滚动0，向下滚动1px
           _this.flag()
         }, this.speed)
         this.key = false
@@ -282,7 +287,7 @@ export default {
     },
     handleChange() {
       if (!this.key) {
-        clearInterval(this.timer)//停止
+        clearInterval(this.timer) //停止
         this.key = true
         this.timer = setInterval(function () {
           window.scrollBy(0, 1)

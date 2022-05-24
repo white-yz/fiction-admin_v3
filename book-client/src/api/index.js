@@ -90,3 +90,9 @@ export const delCollect =(params) => get(`/collect/delete`,params);
 export const getCollectOfUserId = (userId) => get(`/collect/collectOfUserId?userId=${userId}`);
 //返回当前书籍的收藏列表
 export const getAllCollect = (id) => {return get(`/collect/collectOfBookId?bookId=${id}`);}
+//支付  process.env.HOST
+export const payOrder = () => {return `http://localhost:8888/ali/pay`;}
+
+//===============阅读记录===================
+//新增收藏
+export const setRecord =(params) => post(`/record/add`,params);

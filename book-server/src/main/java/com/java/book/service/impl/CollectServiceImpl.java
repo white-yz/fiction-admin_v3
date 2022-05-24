@@ -1,8 +1,8 @@
 package com.java.book.service.impl;
 
 import com.java.book.dao.CollectMapper;
+import com.java.book.dao.RecordMapper;
 import com.java.book.domain.Collect;
-import com.java.book.domain.Comment;
 import com.java.book.service.CollectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +18,9 @@ public class CollectServiceImpl implements CollectService {
     @Autowired
     private CollectMapper collectMapper;
 
+    @Autowired
+    private RecordMapper recordMapper;
+
 
     /**
      * 增加
@@ -26,7 +29,7 @@ public class CollectServiceImpl implements CollectService {
      */
     @Override
     public boolean insert(Collect collect) {
-        return collectMapper.insert(collect)>0;
+        return collectMapper.insert(collect) > 0;
     }
 
     /**
@@ -36,7 +39,7 @@ public class CollectServiceImpl implements CollectService {
      */
     @Override
     public boolean delete(Integer id) {
-        return collectMapper.delete(id)>0;
+        return collectMapper.delete(id) > 0;
     }
 
     /**
@@ -47,7 +50,7 @@ public class CollectServiceImpl implements CollectService {
      */
     @Override
     public boolean deleteByUserIdSongId(Integer userId, Integer bookId) {
-        return collectMapper.deleteByUserIdSongId(userId,bookId)>0;
+        return collectMapper.deleteByUserIdSongId(userId, bookId) > 0;
     }
 
     /**
@@ -65,7 +68,16 @@ public class CollectServiceImpl implements CollectService {
      */
     @Override
     public List<Collect> collectOfUserId(Integer userId) {
-        return collectMapper.collectOfUserId(userId);
+        List<Collect> collects = collectMapper.collectOfUserId(userId);
+//        if (collects != null && !collects.isEmpty()) {
+//            collects.forEach(collect -> {
+//                Record record = recordMapper.selectRecordByConsumerId(userId, collect.getBookId());
+//                if (record != null) {
+//                    collect.setRecord(record.getDirectoryName());
+//                }
+//            });
+//        }
+        return collects;
     }
 
     /**
@@ -76,7 +88,7 @@ public class CollectServiceImpl implements CollectService {
      */
     @Override
     public boolean existSongId(Integer userId, Integer bookId) {
-        return collectMapper.existSongId(userId,bookId)>0;
+        return collectMapper.existSongId(userId, bookId) > 0;
     }
 
     /**

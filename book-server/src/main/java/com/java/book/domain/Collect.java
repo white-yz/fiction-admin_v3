@@ -12,6 +12,8 @@ public class Collect implements Serializable {
     private Integer bookId; //书籍id
     private Date createTime;    //收藏时间
 
+    private String record;    //阅读记录
+
     public Integer getId() {
         return id;
     }
@@ -30,6 +32,14 @@ public class Collect implements Serializable {
 
     public Integer getBookId() {
         return bookId;
+    }
+
+    public String getRecord() {
+        return record;
+    }
+
+    public void setRecord(String record) {
+        this.record = record;
     }
 
     public void setBookId(Integer bookId) {
