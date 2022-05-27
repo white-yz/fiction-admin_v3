@@ -24,6 +24,9 @@ public class Book implements Serializable {
     /*是否收费*/
     private Integer isCharge;
 
+    /*阅读记录*/
+    private String record;
+
     public String getStyle() {
         return style;
     }
@@ -94,5 +97,13 @@ public class Book implements Serializable {
 
     public void setIsCharge(Integer isCharge) {
         this.isCharge = isCharge;
+    }
+
+    public String getRecord() {
+        return record;
+    }
+
+    public void setRecord(String record) {
+        this.record = record;
     }
 }

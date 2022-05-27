@@ -14,6 +14,8 @@ public class Collect implements Serializable {
 
     private String record;    //阅读记录
 
+    private Integer directoryId;    //章节id
+
     public Integer getId() {
         return id;
     }
@@ -52,5 +54,13 @@ public class Collect implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getDirectoryId() {
+        return directoryId;
+    }
+
+    public void setDirectoryId(Integer directoryId) {
+        this.directoryId = directoryId;
     }
 }

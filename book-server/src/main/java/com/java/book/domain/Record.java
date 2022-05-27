@@ -11,6 +11,8 @@ public class Record implements Serializable {
     private Integer id;
     /*书籍id*/
     private Integer directoryId;
+    /*书籍id*/
+    private Integer bookId;
     /*用户id*/
     private Integer consumerId;
     /*作家id*/
@@ -66,5 +68,13 @@ public class Record implements Serializable {
 
     public void setDirectoryName(String directoryName) {
         this.directoryName = directoryName;
+    }
+
+    public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
     }
 }

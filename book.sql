@@ -11,7 +11,7 @@
  Target Server Version : 50647
  File Encoding         : 65001
 
- Date: 01/05/2022 19:36:07
+ Date: 27/05/2022 22:36:42
 */
 
 SET NAMES utf8mb4;
@@ -49,7 +49,7 @@ CREATE TABLE `book`  (
   `style` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '风格',
   `is_charge` int(11) NULL DEFAULT NULL COMMENT '是否收费',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 56 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of book
@@ -113,7 +113,7 @@ CREATE TABLE `classify`  (
   `id` int(11) NOT NULL COMMENT '分类id',
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '分类名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of classify
@@ -137,7 +137,7 @@ CREATE TABLE `collect`  (
   `book_id` int(11) NULL DEFAULT NULL,
   `create_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of collect
@@ -155,12 +155,13 @@ INSERT INTO `collect` VALUES (26, 11, 15, '2021-10-10 13:13:23');
 INSERT INTO `collect` VALUES (28, 11, 1, '2021-10-10 13:18:51');
 INSERT INTO `collect` VALUES (30, 11, 16, '2021-10-10 13:19:43');
 INSERT INTO `collect` VALUES (36, 11, 19, '2021-10-21 20:20:03');
-INSERT INTO `collect` VALUES (38, 2, 2, '2021-10-05 16:02:39');
 INSERT INTO `collect` VALUES (40, 8, 17, '2021-10-09 08:05:44');
 INSERT INTO `collect` VALUES (41, 8, 17, '2021-10-09 08:05:44');
 INSERT INTO `collect` VALUES (42, 7, 19, '2021-10-09 08:05:44');
 INSERT INTO `collect` VALUES (45, 7, 22, '2022-03-31 14:33:06');
 INSERT INTO `collect` VALUES (48, 47, 3, '2022-04-21 22:17:36');
+INSERT INTO `collect` VALUES (49, 2, 13, NULL);
+INSERT INTO `collect` VALUES (50, 2, 2, '2022-05-27 21:58:47');
 
 -- ----------------------------
 -- Table structure for comment
@@ -249,7 +250,7 @@ CREATE TABLE `consumer`  (
 -- Records of consumer
 -- ----------------------------
 INSERT INTO `consumer` VALUES (2, 0, 'cyh', '123', 0, '13738988877', '1352677@qq.com', '2000-09-13 00:00:00', 'chenyuhao33', '江苏', '/avatorImages/1650469227085B1249.jpg', '2021-10-04 19:00:33', '2022-04-28 23:51:33', 1);
-INSERT INTO `consumer` VALUES (7, 0, '张元英', '888', 0, '12312312312', '1230@qq.cn.com', '2005-06-07 00:00:00', '123234dfeg123MyBookMyBook', '浙江', '/avatorImages/1625487704887bd3eb13533fa828ba1b591de4e8afc32960a5a90.jpeg', '2021-10-06 14:33:38', '2021-10-05 20:21:47', 0);
+INSERT INTO `consumer` VALUES (7, 0, '张元英', '888', 0, '12312312312', '1230@qq.cn.com', '2005-06-07 00:00:00', '123234dfeg123MyBookMyBookd', '浙江', '/avatorImages/1625487704887bd3eb13533fa828ba1b591de4e8afc32960a5a90.jpeg', '2021-10-06 14:33:38', '2022-05-27 22:25:33', 0);
 INSERT INTO `consumer` VALUES (8, 0, '殷家乐', '123', 0, '1234567890', '123@qq.com', '2021-10-24 00:00:00', 'asd', '甘肃', '/avatorImages/16257892183897.jpg', '2021-10-06 15:31:58', '2021-10-09 08:07:03', 0);
 INSERT INTO `consumer` VALUES (9, 0, 'tom', '1123', 1, '123123', '123@qq.com', '1955-06-16 00:00:00', '1231423', '吉林', '/img/user.jpg', '2021-10-06 17:53:41', '2021-10-06 17:53:41', 0);
 INSERT INTO `consumer` VALUES (10, 0, 'cat', '123', 1, '123', '123@qq.com', '1995-06-15 00:00:00', '213', '吉林', '/avatorImages/1614662540651a684670a73abc638-af4945195a37f820-8d0f22f9b6130575ba4f1d88c86e44e6.jpg', '2021-10-06 21:05:45', '2021-10-02 13:51:44', 0);
@@ -494,7 +495,7 @@ CREATE TABLE `order`  (
   `user_id` int(11) NULL DEFAULT NULL COMMENT '账号id',
   `directory_id` int(11) NULL DEFAULT NULL COMMENT '目录id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of order
@@ -511,7 +512,7 @@ CREATE TABLE `rank`  (
   `score` int(11) NULL DEFAULT NULL COMMENT '评分',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `consumer_id`(`book_id`, `consumer_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of rank
@@ -555,6 +556,39 @@ INSERT INTO `rank` VALUES (53, 9, 15, 9);
 INSERT INTO `rank` VALUES (56, 1, 16, 9);
 INSERT INTO `rank` VALUES (57, 19, 11, 9);
 INSERT INTO `rank` VALUES (58, 1, 2, 2);
+
+-- ----------------------------
+-- Table structure for record
+-- ----------------------------
+DROP TABLE IF EXISTS `record`;
+CREATE TABLE `record`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `book_id` int(11) NULL DEFAULT NULL,
+  `directory_id` int(11) NULL DEFAULT NULL COMMENT '章节id',
+  `consumer_id` int(11) NULL DEFAULT NULL COMMENT '读者id',
+  `writer_id` int(11) NULL DEFAULT NULL COMMENT '作家id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of record
+-- ----------------------------
+INSERT INTO `record` VALUES (1, 2, 39, 2, NULL, '2022-05-11 09:56:17');
+INSERT INTO `record` VALUES (2, 3, 1, 2, 3, '2022-05-26 10:18:30');
+INSERT INTO `record` VALUES (3, 3, 1, 2, 3, '2022-05-26 10:18:57');
+INSERT INTO `record` VALUES (4, 1, 37, 2, NULL, '2022-05-27 21:51:55');
+INSERT INTO `record` VALUES (5, 1, 37, 2, NULL, '2022-05-27 21:52:13');
+INSERT INTO `record` VALUES (6, 2, 41, 2, NULL, '2022-05-27 21:52:26');
+INSERT INTO `record` VALUES (7, 2, 40, 2, NULL, '2022-05-27 21:52:33');
+INSERT INTO `record` VALUES (8, 2, 38, 2, NULL, '2022-05-27 21:58:51');
+INSERT INTO `record` VALUES (9, 13, 2, 2, NULL, '2022-05-27 21:59:47');
+INSERT INTO `record` VALUES (10, 2, 43, 2, NULL, '2022-05-27 22:16:19');
+INSERT INTO `record` VALUES (11, 22, 95, 7, NULL, '2022-05-27 22:25:50');
+INSERT INTO `record` VALUES (12, 14, 65, 7, NULL, '2022-05-27 22:26:03');
+INSERT INTO `record` VALUES (13, 3, 1, 7, NULL, '2022-05-27 22:34:11');
+INSERT INTO `record` VALUES (14, 3, 1, 7, NULL, '2022-05-27 22:34:15');
+INSERT INTO `record` VALUES (15, 2, 38, 7, NULL, '2022-05-27 22:34:18');
 
 -- ----------------------------
 -- Table structure for writer

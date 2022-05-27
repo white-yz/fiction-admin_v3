@@ -3,6 +3,7 @@ package com.java.book.service.impl;
 import com.java.book.dao.CollectMapper;
 import com.java.book.dao.RecordMapper;
 import com.java.book.domain.Collect;
+import com.java.book.domain.Record;
 import com.java.book.service.CollectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,14 +70,15 @@ public class CollectServiceImpl implements CollectService {
     @Override
     public List<Collect> collectOfUserId(Integer userId) {
         List<Collect> collects = collectMapper.collectOfUserId(userId);
-//        if (collects != null && !collects.isEmpty()) {
-//            collects.forEach(collect -> {
-//                Record record = recordMapper.selectRecordByConsumerId(userId, collect.getBookId());
-//                if (record != null) {
-//                    collect.setRecord(record.getDirectoryName());
-//                }
-//            });
-//        }
+        if (collects != null && !collects.isEmpty()) {
+            collects.forEach(collect -> {
+                Record record = recordMapper.selectRecordByConsumerId(userId, collect.getBookId());
+                if (record != null) {
+                    collect.setRecord(record.getDirectoryName());
+                    collect.setDirectoryId(record.getDirectoryId());
+                }
+            });
+        }
         return collects;
     }
 

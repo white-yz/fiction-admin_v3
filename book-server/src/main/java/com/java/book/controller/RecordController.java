@@ -27,11 +27,13 @@ public class RecordController {
     public Object add(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
         String directoryId = request.getParameter("directoryId");
+        String bookId = request.getParameter("bookId");
         String consumerId = request.getParameter("consumerId");
         String writerId = request.getParameter("writerId");
 
         Record record = new Record();
         record.setDirectoryId(Integer.parseInt(directoryId));
+        record.setBookId(Integer.parseInt(bookId));
         if(StringUtils.isNotEmpty(consumerId)){
             record.setConsumerId(Integer.parseInt(consumerId));
         }
@@ -55,9 +57,6 @@ public class RecordController {
      */
     @RequestMapping(value = "/detail",method = RequestMethod.GET)
     public Object selectRecord(HttpServletRequest request){
-        String consumerId = request.getParameter("consumerId");
-        String writerId = request.getParameter("writerId");
-
         return null;
     }
 
