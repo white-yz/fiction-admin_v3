@@ -1,6 +1,6 @@
 /* 收藏页 */
 <template>
-  <album-content :bookList="collectList" :setting="true"></album-content>
+  <album-content :bookList="collectList" :setting="true"  :showRecord="true"></album-content>
 </template>
 
 <script>
@@ -66,7 +66,7 @@ export default {
           this.collection = res
           //通过书籍id获取书籍信息
           for (let item of this.collection) {
-            this.getBooksOfIds(item.bookId)
+            this.getBooksOfIds(item.bookId,item.record,item.directoryId)
           }
         })
         .catch((err) => {
@@ -74,9 +74,11 @@ export default {
         })
     },
     //通过书籍id获取书籍信息
-    getBooksOfIds(id) {
+    getBooksOfIds(id,record,directoryId) {
       bookOfBookId(id)
         .then((res) => {
+          if(record) res.record = record
+          if(directoryId) res.directoryId = directoryId
           this.collectList.push(res)
         })
         .catch((err) => {

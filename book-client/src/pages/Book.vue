@@ -110,7 +110,8 @@ import {
   getRankOfSum,
   setCollect,
   delCollect,
-  getCollectOfUserId
+  getCollectOfUserId,
+  setRecord
 } from '../api/index'
 import { mixin } from '../mixins/index'
 import { mapGetters } from 'vuex'
@@ -135,7 +136,7 @@ export default {
       sum: '', //评分人数
       colors: ['#d9a6ad', '#d48892', '#D55969'],
       isVip: null,
-      isShowCollect: this.$store.state.configure.isActive
+      isShowCollect: null
     }
   },
   computed: {
@@ -147,8 +148,6 @@ export default {
     ])
   },
   created() {
-    if (window.sessionStorage.getItem('isActive'))
-      this.isShowCollect = JSON.parse(window.sessionStorage.getItem('isActive'))
     this.bookId = this.$route.query.id
     this.writerId = this.$route.query.writerId
     this.getBook()
@@ -171,6 +170,7 @@ export default {
             // console.log(res);
             for (let item of res) {
               if (item.bookId == this.bookId) {
+                this.isShowCollect = true
                 //判断是否已经收藏
                 this.$store.commit('setIsActive', true)
                 break
@@ -201,6 +201,11 @@ export default {
     contentPage(id, bookId) {
       this.$store.commit('setActiveName', '')
       this.$router.push({ path: `/Content`, query: { id, bookId } })
+      var params = new URLSearchParams()
+      params.append('directoryId', id)
+      params.append('bookId', bookId)
+      params.append('consumerId', this.userId)
+      setRecord(params).then((res) => {})
     },
     goWriter(id) {
       this.$router.push({ path: `/writer-album`, query: { id } })
@@ -262,6 +267,7 @@ export default {
           if (res.code == 1) {
             this.$store.commit('setIsActive', true)
             this.isShowCollect = true
+            window.sessionStorage.getItem('isActive', true)
             this.$message({
               message: '收藏成功',
               showClose: true,
@@ -299,6 +305,7 @@ export default {
           // console.log(res);
           this.$store.commit('setIsActive', false)
           this.isShowCollect = false
+          window.sessionStorage.removeItem('isActive')
           this.$message({
             message: '取消收藏成功',
             showClose: true,

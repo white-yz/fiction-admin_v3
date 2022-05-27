@@ -7,18 +7,27 @@
       <hr />
     </h1>
 
-    <el-table :data="bookList" style="width: 100%" @row-click="goBook" @row-dblclick="goBook" @selection-change="handleSelectionChange">
+    <el-table :data="bookList" style="width: 100%" @cell-click="goCell" @cell-dblclick="goCell" @selection-change="handleSelectionChange">
       <el-table-column v-if="setting" type="selection" width="55">
       </el-table-column>
       <el-table-column type="index" width="60" label="序号" :index="(index)=>index+1">
       </el-table-column>
-      <el-table-column prop="name" label="书名" width="180" />
-      <el-table-column prop="name" label="更新时间" width="180">
+      <el-table-column prop="name" label="书名" width="180">
+        <template slot-scope="scope">
+          <span class="textPoint">{{scope.row.name}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="updateTime" label="更新时间" width="180">
         <template slot-scope="scope">
           <span>{{scope.row.updateTime.slice(0,11)}}</span>
         </template>
       </el-table-column>
       <el-table-column prop="style" label="类型" />
+      <el-table-column v-if="showRecord" prop="record" label="上次阅读">
+        <template slot-scope="scope">
+          <span class="textPoint">{{scope.row.record}}</span>
+        </template>
+      </el-table-column>
       <el-table-column v-if="setting" label="操作" width="150" align="center">
         <template slot-scope="scope">
           <el-button size="mini" type="danger" icon="el-icon-delete" circle @click.stop="handleDelete(scope.row)"></el-button>
@@ -43,6 +52,10 @@ export default {
     setting: {
       type: Boolean,
       default: false
+    },
+    showRecord: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -61,6 +74,17 @@ export default {
       let id = row.id
       let writerId = row.writerId
       this.$router.push({ path: `/Book`, query: { id, writerId } })
+    },
+    goCell(row, column, cell, event) {
+      if (column.property == 'name') {
+        this.goBook(row)
+      }
+      if (column.property == 'record') {
+        this.$store.commit('setActiveName', '')
+        let id = row.directoryId
+        let bookId = row.id
+        this.$router.push({ path: `/Content`, query: { id, bookId } })
+      }
     },
     handleSelectionChange(selection) {
       this.selectionData = selection
@@ -97,5 +121,11 @@ export default {
 @import '../assets/css/album-content.scss';
 .batch-del {
   margin-bottom: 10px;
+}
+.textPoint {
+  color: #00ace6;
+}
+.textPoint:hover {
+  color: #007acc;
 }
 </style>
