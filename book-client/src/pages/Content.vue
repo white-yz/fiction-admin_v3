@@ -103,8 +103,6 @@ export default {
     }
   },
   created() {
-    if (window.sessionStorage.getItem('isActive'))
-      this.isShowCollect = JSON.parse(window.sessionStorage.getItem('isActive'))
     this.id = this.$route.query.id
     this.bookId = this.$route.query.bookId
     this.writerId = this.$route.query.writerId
@@ -132,6 +130,7 @@ export default {
           // console.log(res);
           for (let item of res) {
             if (item.bookId == this.bookId) {
+              this.isShowCollect = true
               this.$store.commit('setIsActive', true)
               break
             }
